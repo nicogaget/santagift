@@ -5,13 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "cadeau")
+@Table(name = "gift")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,6 +19,9 @@ public class Gift {
     @Column(name = "id", nullable = false)
     private long id;
     private String title;
-    private String descritpion;
+    private String description;
+    private String img;
+    @ManyToMany(mappedBy = "giftList")
+    private Set<User> users;
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("gifts")
+@RequestMapping("api/gifts")
 public class GiftController {
     
     @Autowired
