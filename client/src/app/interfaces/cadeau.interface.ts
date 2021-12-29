@@ -1,5 +1,6 @@
 export interface Cadeau {
   id: number;
-  titre: string;
+  title: string;
   description: string;
+  img: string;
 }

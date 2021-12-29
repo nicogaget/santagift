@@ -1,0 +1,23 @@
+<form class="formGroup" [formGroup]="form">
+  <div class="formGroup">
+    <h3>Nouveau cadeau</h3>
+    <div>
+      <label
+        >Photo:<input class="form-control m-3" type="url" formControlName="img"
+      /></label>
+      <label
+        >Libellé :<input
+          class="form-control m-3"
+          type="text"
+          formControlName="titre"
+      /></label>
+      <label
+        >Description :<input
+          class="form-control m-3"
+          type="text"
+          formControlName="description"
+      /></label>
+    </div>
+  </div>
+  <button (click)="onSubmit()" class="btn btn-primary">Envoyer</button>
+</form>

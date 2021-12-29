@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cadeau } from 'src/app/interfaces/cadeau.interface';
+import { CadeauService } from 'src/app/_services/cadeau.service';
 import { UserService } from 'src/app/_services/user.service';
 
 @Component({
@@ -9,7 +11,10 @@ import { UserService } from 'src/app/_services/user.service';
 export class HomeComponent implements OnInit {
   content?: string;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private cadeauService: CadeauService
+  ) {}
 
   ngOnInit(): void {
     this.userService.getPublicContent().subscribe(
