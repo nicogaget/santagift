@@ -1,0 +1,14 @@
+create table gift (id bigint not null, description varchar(255), img varchar(255), title varchar(255), primary key (id)) engine=InnoDB;
+create table role (id integer not null auto_increment, name varchar(20), primary key (id)) engine=InnoDB;
+create table user (id bigint not null auto_increment, email varchar(50), password varchar(120), username varchar(20), primary key (id)) engine=InnoDB;
+create table user_has_gift (user_id bigint not null, gift_id bigint not null, primary key (user_id, gift_id)) engine=InnoDB;
+create table user_roles (user_id bigint not null, role_id integer not null, primary key (user_id, role_id)) engine=InnoDB;
+alter table user add constraint UKsb8bbouer5wak8vyiiy4pf2bx unique (username);
+alter table user add constraint UKob8kqyqqgmefl0aco34akdtpe unique (email);
+alter table user_has_gift add constraint FK3jmjp98q3e9q5v36j8cun7ydp foreign key (gift_id) references gift (id);
+alter table user_has_gift add constraint FKf1dnrij5hbyqgf3ou9ybxidie foreign key (user_id) references user (id);
+alter table user_roles add constraint FKrhfovtciq1l558cw6udg0h0d3 foreign key (role_id) references role (id);
+alter table user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user (id);
+INSERT INTO role(name) VALUES('ROLE_USER');
+INSERT INTO role(name) VALUES('ROLE_MODERATOR');
+INSERT INTO role(name) VALUES('ROLE_ADMIN');
