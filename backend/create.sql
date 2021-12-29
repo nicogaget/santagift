@@ -9,3 +9,6 @@ alter table user_has_gift add constraint FK3jmjp98q3e9q5v36j8cun7ydp foreign key
 alter table user_has_gift add constraint FKf1dnrij5hbyqgf3ou9ybxidie foreign key (user_id) references user (id);
 alter table user_roles add constraint FKrhfovtciq1l558cw6udg0h0d3 foreign key (role_id) references role (id);
 alter table user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user (id);
+INSERT INTO role(name) VALUES('ROLE_USER');
+INSERT INTO role(name) VALUES('ROLE_MODERATOR');
+INSERT INTO role(name) VALUES('ROLE_ADMIN');
