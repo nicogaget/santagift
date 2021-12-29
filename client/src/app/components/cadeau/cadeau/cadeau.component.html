@@ -1,3 +1,42 @@
-<div *ngFor="let cadeau of cadeaux; let index = index" class="m-2">
-  <app-cadeau-card [cadeau]="cadeau"></app-cadeau-card>
+<div class="">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        (click)="pageChange('cadeau')"
+      >
+        Les cadeaux
+      </button>
+    </li>
+    <li class="nav-item">
+      <button
+        class="nav-link"
+        data-bs-toggle="tab"
+        (click)="pageChange('list')"
+      >
+        Votre liste
+      </button>
+    </li>
+    <!--
+        <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+    -->
+  </ul>
+</div>
+<div *ngIf="vueCadeaux" class="d-flex flex-wrap">
+  <ng-container *ngFor="let cadeau of cadeaux; let index = index">
+    <app-cadeau-card
+      class="m-1"
+      [cadeau]="cadeau"
+      (ajoutCadeauEvent)="ajouterCadeau($event)"
+    ></app-cadeau-card>
+  </ng-container>
+</div>
+<div *ngIf="vueList">
+  <app-cadeau-list
+    [cadeauList]="cadeauList"
+    class="d-flex flex-wrap"
+  ></app-cadeau-list>
 </div>
