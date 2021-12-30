@@ -1,3 +1,7 @@
 <ng-container *ngFor="let cadeau of cadeauList; let index = index">
-  <app-cadeau-small-card class="m-1" [cadeau]="cadeau"></app-cadeau-small-card>
+  <app-cadeau-small-card
+    class="m-1"
+    [cadeau]="cadeau"
+    (retirerCadeauEvent)="retirerCadeau(cadeau)"
+  ></app-cadeau-small-card>
 </ng-container>
