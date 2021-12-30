@@ -9,7 +9,14 @@ import { CadeauService } from 'src/app/_services/cadeau.service';
 })
 export class CadeauComponent implements OnInit {
   cadeaux!: Cadeau[];
-  cadeauList: Cadeau[] = [];
+  cadeauList: Cadeau[] = [
+    {
+      id: 1,
+      title: 'Gta the trilogy the definitive edition XBOX SERIES X',
+      description: 'null',
+      img: 'https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dwf2935860/images/high-res/117506.jpg?sw=224&sh=216&sm=fit',
+    },
+  ];
   vueCadeaux: boolean = true;
   vueList: boolean = false;
   constructor(private cadeauService: CadeauService) {}
@@ -40,7 +47,9 @@ export class CadeauComponent implements OnInit {
       if (item === cadeau) this.cadeaux.splice(index, 1);
     });
   }
-  retirerCadeau(cadeau: Cadeau) {
+
+  retirerCadeauList(cadeau: Cadeau) {
+    console.log('retirer cadeau' + JSON.stringify(cadeau));
     this.cadeaux.push(cadeau);
     this.cadeauList.forEach((item, index) => {
       if (item === cadeau) this.cadeauList.splice(index, 1);

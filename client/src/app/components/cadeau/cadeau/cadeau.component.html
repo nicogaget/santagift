@@ -25,7 +25,7 @@
     -->
   </ul>
 </div>
-<div *ngIf="vueCadeaux" class="d-flex flex-wrap">
+<div *ngIf="vueCadeaux" class="container d-flex flex-wrap">
   <ng-container *ngFor="let cadeau of cadeaux; let index = index">
     <app-cadeau-card
       class="m-1"
@@ -38,5 +38,6 @@
   <app-cadeau-list
     [cadeauList]="cadeauList"
     class="d-flex flex-wrap"
+    (retirerCadeauListEvent)="retirerCadeauList($event)"
   ></app-cadeau-list>
 </div>

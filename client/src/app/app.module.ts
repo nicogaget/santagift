@@ -18,7 +18,7 @@ import { CadeauComponent } from './components/cadeau/cadeau/cadeau.component';
 import { CadeauListComponent } from './components/cadeau/cadeau-list/cadeau-list.component';
 import { CadeauCardComponent } from './components/cadeau/cadeau-card/cadeau-card.component';
 import { CadeauFormComponent } from './components/cadeau/cadeau-form/cadeau-form.component';
-import { CadeauSmallCardComponent } from './components/cadeau/cadeau/cadeau-small-card/cadeau-small-card.component';
+import { CadeauSmallCardComponent } from './components/cadeau/cadeau-small-card/cadeau-small-card.component';
 
 @NgModule({
   declarations: [

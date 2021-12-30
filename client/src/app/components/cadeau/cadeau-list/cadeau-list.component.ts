@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cadeau } from 'src/app/interfaces/cadeau.interface';
 
 @Component({
@@ -8,7 +8,10 @@ import { Cadeau } from 'src/app/interfaces/cadeau.interface';
 })
 export class CadeauListComponent implements OnInit {
   @Input() cadeauList: Cadeau[] = [];
+  @Output() retirerCadeauListEvent = new EventEmitter<Cadeau>();
   constructor() {}
-
+  retirerCadeau(cadeau: Cadeau) {
+    this.retirerCadeauListEvent.emit(cadeau);
+  }
   ngOnInit(): void {}
 }
