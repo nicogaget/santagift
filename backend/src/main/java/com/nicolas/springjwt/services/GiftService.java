@@ -25,7 +25,7 @@ public class GiftService {
      * @return gift list
      */
     public List<Gift> findAll(){
-        LOGGER.info("Appel de la liste des giftx");
+
         return this.giftRepository.findAll();
     }
 

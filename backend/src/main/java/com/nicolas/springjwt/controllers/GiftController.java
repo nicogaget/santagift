@@ -26,7 +26,7 @@ public class GiftController {
     }
     
     @PostMapping("")
-    public Gift addGift(@RequestBody Gift gift){
+    public Gift save(@RequestBody Gift gift){
         return this.giftService.save(gift);
     }
 
@@ -39,5 +39,7 @@ public class GiftController {
         this.giftService.deleteById(id);
 
     }
+
+
     
 }

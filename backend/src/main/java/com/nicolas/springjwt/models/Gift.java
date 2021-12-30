@@ -21,7 +21,7 @@ public class Gift {
     private String title;
     private String description;
     private String img;
-    @ManyToMany(mappedBy = "giftList")
+    @ManyToMany(cascade=CascadeType.ALL,mappedBy = "giftList")
     private Set<User> users;
 
 }

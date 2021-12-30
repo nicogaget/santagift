@@ -32,7 +32,7 @@ public class User {
   @Size(max = 120)
   private String password;
 
-  @ManyToMany
+  @ManyToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
   @JoinTable(
           name = "user_has_gift",
           joinColumns = @JoinColumn(name = "user_id"),
@@ -56,10 +56,6 @@ public class User {
 
   public Long getId() {
     return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
   }
 
   public String getUsername() {
@@ -92,5 +88,12 @@ public class User {
 
   public void setRoles(Set<Role> roles) {
     this.roles = roles;
+  }
+
+  public Set<Gift> getGiftList() {
+    return giftList;
+  }
+  public void setGiftList(Set<Gift> giftList) {
+    this.giftList = giftList;
   }
 }
