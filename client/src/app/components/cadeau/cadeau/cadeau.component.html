@@ -1,4 +1,4 @@
-<div class="">
+<div class="mt-3">
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <button
@@ -10,6 +10,9 @@
       </button>
     </li>
     <li class="nav-item">
+      <span *ngIf="nbrCadeau > 0" class="badge rounded-pill bg-primary">{{
+        nbrCadeau
+      }}</span>
       <button
         class="nav-link"
         data-bs-toggle="tab"
