@@ -2,6 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Cadeau } from 'src/app/interfaces/cadeau.interface';
 import { CadeauService } from 'src/app/_services/cadeau.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-cadeau',
@@ -9,31 +10,17 @@ import { CadeauService } from 'src/app/_services/cadeau.service';
   styleUrls: ['./cadeau.component.css'],
 })
 export class CadeauComponent implements OnInit {
+  currentUser: any;
   cadeaux!: Cadeau[];
-  cadeauList: Cadeau[] = [
-    {
-      id: 1,
-      title: 'Gta the trilogy the definitive edition XBOX SERIES X',
-      description: 'null',
-      img: 'https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dwf2935860/images/high-res/117506.jpg?sw=224&sh=216&sm=fit',
-    },
-  ];
+  cadeauList: Cadeau[] = [];
   nbrCadeau!: number;
   vueCadeaux: boolean = true;
   vueList: boolean = false;
-  constructor(private cadeauService: CadeauService) {}
+  constructor(
+    private cadeauService: CadeauService,
+    private token: TokenStorageService
+  ) {}
 
-  ngOnInit(): void {
-    this.cadeauService.getAll().subscribe(
-      (response) => {
-        this.cadeaux = response;
-      },
-      (err) => {
-        this.cadeaux = JSON.parse(err.error).message;
-      }
-    );
-    this.nbrCadeau = this.cadeauList.length;
-  }
   pageChange(vue: string) {
     if (vue == 'cadeau') {
       this.vueCadeaux = true;
@@ -59,6 +46,20 @@ export class CadeauComponent implements OnInit {
       if (item === cadeau) this.cadeauList.splice(index, 1);
     });
     this.nbrCadeau = this.cadeauList.length;
+  }
+
+  ngOnInit(): void {
+    this.currentUser = this.token.getUser();
+    this.cadeauService.getAll().subscribe(
+      (response) => {
+        this.cadeaux = response;
+      },
+      (err) => {
+        this.cadeaux = JSON.parse(err.error).message;
+      }
+    );
+    this.nbrCadeau = this.cadeauList.length;
+    console.log(this.currentUser);
   }
 }
 /*

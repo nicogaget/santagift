@@ -9,10 +9,8 @@
         Les cadeaux
       </button>
     </li>
-    <li class="nav-item">
-      <span *ngIf="nbrCadeau > 0" class="badge rounded-pill bg-primary">{{
-        nbrCadeau
-      }}</span>
+    <li class="nav-item" *ngIf="currentUser.accessToken">
+      <span class="badge rounded-pill bg-warning">{{ nbrCadeau }}</span>
       <button
         class="nav-link"
         data-bs-toggle="tab"
@@ -20,6 +18,9 @@
       >
         Votre liste
       </button>
+    </li>
+    <li class="nav-item" *ngIf="!currentUser.accessToken">
+      <button class="nav-link" data-bs-toggle="tab">Créer votre liste</button>
     </li>
     <!--
         <li class="nav-item">

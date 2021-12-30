@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //alert('Les choses a faire : sauvegarder un cadeau pour un user');
     this.userService.getPublicContent().subscribe(
       (data) => {
         this.content = data;
