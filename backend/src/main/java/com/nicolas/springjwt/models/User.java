@@ -32,6 +32,13 @@ public class User {
   @Size(max = 120)
   private String password;
 
+  @ManyToMany
+  @JoinTable(
+          name = "user_has_gift",
+          joinColumns = @JoinColumn(name = "user_id"),
+          inverseJoinColumns = @JoinColumn(name = "gift_id"))
+  Set<Gift> giftList;
+
   @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(  name = "user_roles", 
         joinColumns = @JoinColumn(name = "user_id"), 

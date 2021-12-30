@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cadeau } from 'src/app/interfaces/cadeau.interface';
 
 @Component({
@@ -8,7 +8,12 @@ import { Cadeau } from 'src/app/interfaces/cadeau.interface';
 })
 export class CadeauCardComponent implements OnInit {
   @Input() cadeau!: Cadeau;
+  @Output() ajoutCadeauEvent= new EventEmitter<Cadeau>(); 
   constructor() {}
 
+  ajouterCadeau(){
+    this.ajoutCadeauEvent.emit(this.cadeau);
+
+  }
   ngOnInit(): void {}
 }

@@ -18,6 +18,8 @@ import { CadeauComponent } from './components/cadeau/cadeau/cadeau.component';
 import { CadeauListComponent } from './components/cadeau/cadeau-list/cadeau-list.component';
 import { CadeauCardComponent } from './components/cadeau/cadeau-card/cadeau-card.component';
 import { CadeauFormComponent } from './components/cadeau/cadeau-form/cadeau-form.component';
+import { CadeauSmallCardComponent } from './components/cadeau/cadeau-small-card/cadeau-small-card.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { CadeauFormComponent } from './components/cadeau/cadeau-form/cadeau-form
     CadeauListComponent,
     CadeauCardComponent,
     CadeauFormComponent,
+    CadeauSmallCardComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
